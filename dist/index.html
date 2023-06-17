@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
+
+<body class="dark:bg-gray-950">
+
+  <!--navbar-->
+  <nav class="bg-white border-gray-200 dark:bg-gray-950">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:text-xl">
+      <button class="px-4 py-1 bg-black text-white rounded-xl hover:bg-orange-500 border-2 border-white">
+        Download CV
+      </button>
+      <button data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center p-2 ml-3 text-sm text-black dark:text-white md:hidden "
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <div class=" hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 px-0 md:p-0 mt-0 md:flex-row md:space-x-8 md:mt-0">
+          <li>
+            <a href="#about"
+              class=" block py-2 pl-0 pr-4   text-black hover:text-orange-500 dark:text-white dark:hover:text-orange-500">About</a>
+          </li>
+          <li>
+            <a href="#project"
+              class=" block py-2 pl-0 pr-4  text-black hover:text-orange-500 dark:text-white dark:hover:text-orange-500">Project</a>
+          </li>
+          <li>
+            <a href="#contact" aria-label="navigation link"
+              class="block py-2 pl-0 pr-4   text-black hover:text-orange-500 dark:text-white dark:hover:text-orange-500">Contact</a>
+          </li>
+          <li>
+            <button id="theme-toggle" type="button"
+              class="text-gray-500 dark:text-gray-400 bg-gray-100 hover:bg-orange-500 dark:hover:bg-orange-500 focus:outline-none focus:ring-4 rounded-lg text-sm p-2.5 mt-4 md:mt-0">
+              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--name-->
+  <div class="mb-20 max-w-screen-xl md:flex  items-center justify-between mx-auto p-4">
+    <div class="flex justify-center items-center md:w-1/2">
+      <img class="shrink" src="/img/pic1.png">
+    </div>
+    <div class="md:w-1/2 dark:text-white font-mono font-bold text-3xl  text-center">
+      Hi! My name is <span class="text-orange-500">Jane Doe</span> and I am a web developer based in New York.
+      <br>
+      <button
+        class="mt-10 font-sans font-normal text-base rounded-xl px-4 py-2 border-2 border-white bg-black hover:bg-orange-500 text-white md:text-xl">
+        Learn more
+      </button>
+    </div>
+  </div>
+
+  <!--about-->
+  <div id="about" class="mb-20 max-w-screen-xl md:flex  items-center justify-between mx-auto p-4">
+    <div class="mb-10 flex justify-center items-center md:w-1/2 font-bold font-mono text-3xl text-orange-500 underline">
+      About me
+    </div>
+    <div class="md:w-1/2 dark:text-white text-lg text-justify">
+      Here is your description in English! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum
+    </div>
+  </div>
+
+  <!--project-->
+  <div id="project" class="mb-10 text-center max-w-screen text-orange-500 text-3xl font-bold font-mono underline">
+    Projects
+  </div>
+
+  <div class="mb-5 max-w-screen-xl md:flex  items-center justify-between mx-auto p-4">
+    <!--Card 1-->
+    <div class=" rounded-xl overflow-hidden shadow-lg mx-1.5 scale-95 hover:scale-100 ease-in duration-100 bg-white">
+      <img class="w-30 h-30" src="/img/pic2.png">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Project title</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#CSS</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#TypeScript</span>
+      </div>
+    </div>
+    <!--Card 2-->
+    <div class="rounded-xl overflow-hidden shadow-lg mx-1.5 scale-95 hover:scale-100 ease-in duration-100 bg-white">
+      <img class="w-30 h-30" src="/img/pic2.png">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Project title</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#CSS</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#TypeScript</span>
+      </div>
+    </div>
+
+    <!--Card 3-->
+    <div class="rounded-xl overflow-hidden shadow-lg mx-1.5 scale-95 hover:scale-100 ease-in duration-100 bg-white">
+      <img class="w-30 h-30" src="/img/pic2.png">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Project title</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+          eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#CSS</span>
+        <span
+          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#TypeScript</span>
+      </div>
+    </div>
+  </div>
+
+  <!--view project archive-->
+  <div class=" mb-20 max-w-screen-xl text-center justify-between mx-auto p-4 dark:text-white ">
+    <a href="#" class="inline-flex hover:text-orange-500 text-lg">
+      <span> View full project archive </span>
+      <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!--contact-->
+  <div id="contact" class="mb-10 max-w-screen-xl text-center items-center justify-between mx-auto p-4">
+    <button class="mb-10 border-2 border-white rounded-xl px-4 py-2 bg-black text-white text-lg hover:bg-orange-500">
+      <a href="#">Say hello!</a>
+    </button>
+    <hr class="mx-auto border-black dark:border-white w-1/2">
+  </div>
+  <div class="mb-20 w-1/3 md:flex items-center justify-around mx-auto">
+    <svg class="dark:text-white hover:text-orange-500 dark:hover:text-orange-500 w-10 h-10 rounded-xl mx-auto mb-5 md:scale-150" xmlns="http://www.w3.org/2000/svg" width="16"
+      height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+      <path
+        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+    </svg>
+    <svg class="dark:text-white hover:text-orange-500 dark:hover:text-orange-500 w-10 h-10 rounded-xl mx-auto mb-5 md:scale-150" xmlns="http://www.w3.org/2000/svg" width="16"
+      height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+      <path
+        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+    </svg>
+    <svg class="dark:text-white hover:text-orange-500 dark:hover:text-orange-500 w-10 h-10 rounded-xl mx-auto mb-5 md:scale-150" xmlns="http://www.w3.org/2000/svg" width="16"
+      height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+      <path
+        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+    </svg>
+
+  </div>
+
+
+
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <script>
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Change the icons inside the button based on previous settings
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    var themeToggleBtn = document.getElementById('theme-toggle');
+
+    themeToggleBtn.addEventListener('click', function () {
+
+      // toggle icons inside button
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      // if set via local storage previously
+      if (localStorage.getItem('color-theme')) {
+        if (localStorage.getItem('color-theme') === 'light') {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        }
+
+        // if NOT set via local storage previously
+      } else {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>
